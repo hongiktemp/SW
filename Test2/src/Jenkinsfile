@@ -71,8 +71,8 @@ pipeline {
             echo "Build and test succeeded!"
             
             emailext(
-				subject: "Success"
-				body: "Build and test succeeded!"
+				subject: "Success",
+				body: "Build and test succeeded!",
 				to: "c181092@g.hongik.ac.kr"
 			)
         }
