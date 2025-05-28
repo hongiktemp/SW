@@ -72,21 +72,12 @@ pipeline {
             
             // 이메일 전송
             emailext(
-				subject: "✅ Jenkins Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """
-                ✅ Build and Test Succeeded!
-
-                - Job: ${env.JOB_NAME}
-                - Build Number: ${env.BUILD_NUMBER}
-                - Status: SUCCESS
-                - View build: ${env.BUILD_URL}
-
-                Regards,
-                Jenkins
-                """,
-      
+				subject: "Success",
+				body: "Build and test succeeded!",
 				to: "hongikunitemp@gmail.com"
 			)
+			
+			echo ">>> email step finished <<<"
         }
     }
 }
