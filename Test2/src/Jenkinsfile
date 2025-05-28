@@ -70,13 +70,14 @@ pipeline {
         success {
             echo "Build and test succeeded!"
             
-            // 이메일 전송
-            emailext(
-				subject: "Success",
-				body: "Build and test succeeded!",
-				to: "hongikunitemp@gmail.com",
-				from: "hongikunitemp@gmail.com"
-			)
+            
         }
+        
+        // 이메일 전송
+            emailext(
+				subject: "Test",
+				body: "Email Test",
+				to: "hongikunitemp@gmail.com",
+			)
     }
 }
