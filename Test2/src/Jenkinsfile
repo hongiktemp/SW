@@ -70,7 +70,7 @@ pipeline {
         success {
             echo "Build and test succeeded!"
             
-            // 성공 시 이메일 전송 
+            // 성공 시 이메일 전송
             emailext(
 				subject: "Success",
 				body: "Build and test succeeded!",
