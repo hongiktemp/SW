@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         JUNIT_JAR_URL = 'https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.7.1/junit-platform-console-standalone-1.7.1.jar'
-        JUNIT_JAR_PATH = 'lib/junit.jar'
+        JUNIT_JAR_PATH = 'lib/junit-platform-console-standalone-1.7.1.jar'
         CLASS_DIR = 'classes'
         REPORT_DIR = 'test-reports'
     }
@@ -17,7 +17,7 @@ pipeline {
 
         stage('Prepare') {
             steps {
-                bat '''
+                sh '''
                     mkdir -p ${CLASS_DIR}
                     mkdir -p ${REPORT_DIR}
                     mkdir -p lib
@@ -29,7 +29,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat '''
+                sh '''
                     echo "[+] Compiling source files..."
                     cd Test2
                     find src -name "*.java" > sources.txt
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat '''
+                sh '''
                     echo "[+] Running tests with JUnit..."
                     java -jar ${JUNIT_JAR_PATH} \
                          --class-path ${CLASS_DIR} \
