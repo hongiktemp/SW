@@ -77,7 +77,6 @@ pipeline {
 				to: "hongikunitemp@gmail.com"
 			)
 			
-			echo ">>> email step finished <<<"
         }
     }
 }
